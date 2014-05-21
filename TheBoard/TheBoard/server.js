@@ -1,15 +1,14 @@
 ﻿var http = require("http");
+var express = require("express");
 
-var server = http.createServer(function(req, res) {
+var app = express();
 
-    if (req.url === '/favicon.ico') { res.end();
-        return;
-    }
-
-    var htmlResponse = "<html><head></head><body><h1>" + req.url + "</h1></body>";
-    res.write(htmlResponse);
-    console.log('The req.url is: ' + req.url);
-    res.end();
+// Handle GET requests to the root
+app.get('/', function(req, res) {
+    res.send("<html><head></head><body><h1>Express FTW!</h1></body><html>");
+    console.log(req.url);
 });
+
+var server = http.createServer(app);
 
 server.listen(3000);
