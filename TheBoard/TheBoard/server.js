@@ -20,7 +20,7 @@ app.get('/api/users', function (req, res) {
     };
 
     // specify content type explicitly in response header
-    //res.set("Content-Type", "application/json");
+    res.set("Content-Type", "application/json");
 
     res.send(someJsObject);
     console.log(req.url);
