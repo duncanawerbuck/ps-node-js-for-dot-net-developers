@@ -35,6 +35,7 @@
     <Content Include="README.md" />
     <Content Include="views\ejs\layout.ejs" />
     <Content Include="views\ejs\index.ejs" />
+    <Content Include="views\layout.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\jade\layout.jade" />
     <Content Include="views\jade\index.jade" />
