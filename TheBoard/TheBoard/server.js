@@ -5,14 +5,28 @@ var app = express();
 
 var ejsEngine = require('ejs-locals');
 
+// --- view engine: jade ---
 //app.set('view engine', 'jade');
 
-app.engine('ejs', ejsEngine);   // support master pages
-app.set('view engine', 'ejs'); // ejs view engine
+// --- view engine: ejs ---
+//app.engine('ejs', ejsEngine);   // support master pages
+//app.set('view engine', 'ejs'); // ejs view engine
+
+// --- view engine: vash ---
+app.set('view engine', 'vash');
 
 // Handle GET requests to the root
 app.get('/', function (req, res) {
-    res.render('ejs/index', { title: 'Express + EJS' });
+    
+    // --- view engine: jade ---
+    //res.render('jade/index', { title: 'Express + Jade' });
+
+    // --- view engine: ejs ---
+    // res.render('ejs/index', { title: 'Express + EJS' });
+
+    // --- view engine: vash ---
+    res.render('index', { title: 'Express + Vash' });
+
     console.log(req.url);
 });
 
