@@ -3,13 +3,19 @@ var express = require('express');
 
 var app = express();
 
+// Use vash view engine (as opposed to Jade or EJS)
 app.set('view engine', 'vash');
 
 // Handle GET requests to the root
 app.get('/', function (req, res) {
 
-    res.render('index', { title: 'Express + Vash' });
-    console.log(req.url);
+    res.render(
+        // which view
+        'index',
+        
+        // view model to pass to view
+        { title: 'Express + Vash' }
+    );
 
 });
 
@@ -23,11 +29,10 @@ app.get('/api/users', function (req, res) {
         group: 'Admin'
     };
 
-    // specify content type explicitly in response header
+    // specify content type explicitly in response header (defaults to JSON anyway)
     res.set('Content-Type', 'application/json');
 
     res.send(someJsObject);
-    console.log(req.url);
 });
 
 var server = http.createServer(app);
