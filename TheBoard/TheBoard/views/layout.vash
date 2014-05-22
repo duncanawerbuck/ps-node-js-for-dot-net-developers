@@ -4,6 +4,7 @@
 	
 	<head>
 		<title>@model.title</title>
+		<link href="/css/site.css" rel="stylesheet" />
 	</head>
 
 	<body>

@@ -8,6 +8,8 @@ var controllers = require('./controllers');
 // Use vash view engine (as opposed to Jade or EJS)
 app.set('view engine', 'vash');
 
+app.use(express.static(__dirname + '/public'));
+
 controllers.init(app);
 
 // Handle GET requests to api/users by returning JSON.
