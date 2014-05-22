@@ -7,6 +7,8 @@
 
             res.render('index', { title: 'Express + Vash' });
 
+            // log current time
+            console.log(new Date().toTimeString().split(' ')[0]);
         });
 
     };
