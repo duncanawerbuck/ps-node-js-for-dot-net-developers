@@ -1,9 +1,8 @@
-﻿@html.extend('layout', function(model) {	// 'layout' is the identifier that ties up with the layout's filename
+﻿@html.extend('layout', function(model) {
 	
-	@html.block('body', function(model) {	// 'body' is the identifier for the placeholder in the layout file: @html.block('body')
+	@html.block('body', function(model) {
 
-		<h1>@model.title</h1>				// @model is the viewModel passed to the view -- see the call to res.render in server.js (available to layout and partial)
-
+		<h1>@model.title</h1>
 		<p>This is from the server!</p>
 	
 	})

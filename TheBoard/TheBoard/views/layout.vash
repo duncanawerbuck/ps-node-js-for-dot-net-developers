@@ -3,11 +3,10 @@
 <html>
 	
 	<head>
-		<title>@model.title</title> 
+		<title>@model.title</title>
 	</head>
 
 	<body>
-		<!-- The "body" string below is simply an identifier for what will be injected. In our case, this ties up with what's in index.js: ...html.block('body'... -->
 		<div>@html.block('body')</div>
 	</body>
 
