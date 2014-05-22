@@ -3,21 +3,12 @@ var express = require('express');
 
 var app = express();
 
+var controllers = require('./controllers');
+
 // Use vash view engine (as opposed to Jade or EJS)
 app.set('view engine', 'vash');
 
-// Handle GET requests to the root
-app.get('/', function (req, res) {
-
-    res.render(
-        // which view
-        'index',
-        
-        // view model to pass to view
-        { title: 'Express + Vash' }
-    );
-
-});
+controllers.init(app);
 
 // Handle GET requests to api/users by returning JSON.
 app.get('/api/users', function (req, res) {
