@@ -33,17 +33,11 @@
     <Compile Include="server.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="views\ejs\layout.ejs" />
-    <Content Include="views\ejs\index.ejs" />
     <Content Include="views\layout.vash" />
     <Content Include="views\index.vash" />
-    <Content Include="views\jade\layout.jade" />
-    <Content Include="views\jade\index.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />
-    <Folder Include="views\jade\" />
-    <Folder Include="views\ejs\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
   <ProjectExtensions>
