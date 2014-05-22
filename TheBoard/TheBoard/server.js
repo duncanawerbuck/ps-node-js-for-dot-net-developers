@@ -1,11 +1,13 @@
-﻿var http = require("http");
-var express = require("express");
+﻿var http = require('http');
+var express = require('express');
 
 var app = express();
 
+app.set('view engine', 'jade');
+
 // Handle GET requests to the root
 app.get('/', function (req, res) {
-    res.send("<html><head></head><body><h1>Express FTW!</h1></body><html>");
+    res.render('jade/index', { title: 'Express + Jade' });
     console.log(req.url);
 });
 
@@ -14,13 +16,13 @@ app.get('/api/users', function (req, res) {
 
     // object to return as JSON
     var someJsObject = {
-        name: "Shawn",
+        name: 'Shawn',
         isValid: true,
-        group: "Admin"
+        group: 'Admin'
     };
 
     // specify content type explicitly in response header
-    res.set("Content-Type", "application/json");
+    res.set('Content-Type', 'application/json');
 
     res.send(someJsObject);
     console.log(req.url);
