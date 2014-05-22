@@ -11,5 +11,6 @@
     "express": "~3.4.8",
     "underscore": "~1.6.0",
     "vash": "~0.7.12-1"
-  }
+  },
+  "devDependencies": {}
 }

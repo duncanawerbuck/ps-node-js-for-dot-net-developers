@@ -9,6 +9,11 @@
 
 	<body>
 		<div>@html.block('body')</div>
+		<script src="/lib/underscore/underscore.js"></script>
+
+		<script>
+			alert(typeof _);
+		</script>
 	</body>
 
 </html>
