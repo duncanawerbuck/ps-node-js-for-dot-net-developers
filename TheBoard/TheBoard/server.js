@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 controllers.init(app);
 
 // Handle GET requests to api/users by returning JSON.
-app.get('/api/users', function (req, res) {
+app.get('/api/users', function (req, res) { 
 
     // object to return as JSON
     var someJsObject = {
