@@ -1,7 +1,7 @@
 ﻿(function(database) {
 
     var mongodb = require('mongodb');
-    var mongoUrl = 'mongodb://localhost:/27017/theBoard';
+    var mongoUrl = 'mongodb://localhost:27017/theBoard';
     var theDb = null; // this will be re-used so the db is only created once (on first request).
 
     database.getDb = function(next) { // the 'next' param is the callback function. Takes an error as first param, or the created db as the second.
@@ -13,9 +13,10 @@
                 } else {
                     // Shawn recommends that we wrap the db in an object so we can extend it easily later.
                     theDb = {
-                        db: db
+                        db: db,
+                        notes: db.collection('notes')
                     };
-                    next(null, db);
+                    next(null, theDb);
                 }
             });
         } else { // db already exists...
