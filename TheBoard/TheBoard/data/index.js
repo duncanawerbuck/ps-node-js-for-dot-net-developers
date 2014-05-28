@@ -8,7 +8,7 @@
             if (err) {
                 next(err, null);
             } else {
-                db.notes.find().toArray(function(err, results) {
+                db.notes.find().sort({ name: 1 }).toArray(function (err, results) {
                     if (err) {
                         next(err, null);
                     } else {
