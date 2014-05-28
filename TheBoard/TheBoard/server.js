@@ -8,6 +8,9 @@ var controllers = require('./controllers');
 // Use vash view engine (as opposed to Jade or EJS)
 app.set('view engine', 'vash');
 
+// Opt into Services (allows us to access body of post requests, as per course section "Inserting Data with a Form".
+app.use(express.urlencoded());
+
 app.use(express.static(__dirname + '/public'));
 
 controllers.init(app);
