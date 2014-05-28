@@ -15,6 +15,13 @@
 
 			</div>
 		</div>
+
+        <div class="row">
+            <form action="/newCateogry" role="form" method="post" class="form-inline">
+                <input type="text" name="categoryName" class="form-control" placeholder="category name" />
+                <input type="submit" value="New Category" class="btn btn-primary" />
+            </form>
+        </div>
 	})
 
 })
