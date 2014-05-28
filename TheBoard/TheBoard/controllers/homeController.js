@@ -10,7 +10,12 @@
             data.getNoteCategories(function(err, results) {
 
 
-                res.render('index', { title: 'Express + Vash', error: err, categories: results });
+                res.render('index', {
+                    title: 'Express + Vash',
+                    error: err,
+                    categories: results,
+                    newCatError: req.flash('newCatName')
+                });
 
             });
 
@@ -23,8 +28,12 @@
             var categoryName = req.body.categoryName;
             data.createNewCategory(categoryName, function(err) {
                 if (err) {
-                    // TODO:Handle error
+                    // Handle error
                     console.log(err);
+
+                    // node package 'connect-flash' allows us to:
+                    req.flash("newCatName", err);
+
                     res.redirect('/');
                 } else {
                     res.redirect('/notes/' + categoryName);

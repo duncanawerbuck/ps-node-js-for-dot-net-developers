@@ -11,7 +11,8 @@
     "express": "~3.4.8",
     "underscore": "~1.6.0",
     "vash": "~0.7.12-1",
-    "mongodb": "~1.4.5"
+    "mongodb": "~1.4.5",
+    "connect-flash": "~0.1.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
