@@ -19,6 +19,17 @@
         });
     };
 
+    data.getNotes = function(categoryName, next) {
+
+        database.getDb(function(err, db) {
+            if (err) {
+                next(err);
+            } else {
+                db.notes.findOne({ name: categoryName }, next); // we can re-use the next funtion here, 'cos it's the same signature as the anonymous function we'd normally define here.
+            }
+        });
+    };
+
     data.createNewCategory = function(categoryName, next) {
 
         database.getDb(function(err, db) {
@@ -46,8 +57,6 @@
                         }
                     }
                 });
-
-                
             }
         });
     };

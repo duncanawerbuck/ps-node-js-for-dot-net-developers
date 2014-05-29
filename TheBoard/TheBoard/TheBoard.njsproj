@@ -32,6 +32,7 @@
   <ItemGroup>
     <Compile Include="controllers\homeController.js" />
     <Compile Include="controllers\index.js" />
+    <Compile Include="controllers\notesController.js" />
     <Compile Include="data\database.js" />
     <Compile Include="data\seedData.js" />
     <Compile Include="data\index.js" />
