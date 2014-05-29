@@ -5,6 +5,8 @@
 
     notesController.init = function (app) {
 
+
+        // GET notes by category name
         app.get('/api/notes/:categoryName', function (req, res) {
 
             var categoryName = req.params.categoryName;
@@ -17,10 +19,27 @@
 
                     res.set('Content-Type', 'application/json'); // JSON is the default, but we're good citizens, so specifying content type explicitly.
 
-                    res.send(notes);
+                    res.send(notes.notes);
                 }
             });
         });
+
+        // POST - add a new note
+        app.post('/api/notes/:categoryName', function(req, res) {
+
+            var categoryName = req.params.categoryName;
+
+            var noteToInsert = {
+                note: req.body.note,
+                color: req.body.color,
+                author: 'Shawn Wildermuth'
+            };
+
+            data.addNote(categoryName, noteToInsert, function(err) {
+                
+            });
+        });
+
     };
 
 })(module.exports);
