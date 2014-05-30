@@ -39,7 +39,6 @@
     <Compile Include="gruntfile.js" />
     <Compile Include="server.js" />
     <Content Include=".bowerrc" />
-    <Content Include="deleteme.html" />
     <Content Include="package.json" />
     <Content Include="public\css\site.css" />
     <Content Include="README.md" />
