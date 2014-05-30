@@ -35,9 +35,14 @@
                 author: 'Shawn Wildermuth'
             };
 
-            //data.addNote(categoryName, noteToInsert, function(err) {
-                
-            //});
+            data.addNote(categoryName, noteToInsert, function(err) {
+                if (err) {
+                    res.send(400, "Failed to add note to data store");
+                } else {
+                    res.set('Content-Type', 'application/json');
+                    res.send(201, noteToInsert);
+                }
+            });
         });
 
     };
