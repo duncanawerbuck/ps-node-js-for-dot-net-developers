@@ -35,9 +35,9 @@
                 author: 'Shawn Wildermuth'
             };
 
-            data.addNote(categoryName, noteToInsert, function(err) {
+            //data.addNote(categoryName, noteToInsert, function(err) {
                 
-            });
+            //});
         });
 
     };

@@ -11,6 +11,7 @@ app.set('view engine', 'vash');
 
 // Opt into Services 
 app.use(express.urlencoded()); // allows us to access body of post requests, as per course section "Inserting Data with a Form".
+app.use(express.json()); // allows JSON-encoded bodies
 app.use(express.cookieParser()); // required for session to be tied up with an individual browser.
 app.use(express.session({ secret: 'PluralsightTheBoard' })); // enable session state. required for connect-flash to work
 app.use(flash()); // connect-flash
