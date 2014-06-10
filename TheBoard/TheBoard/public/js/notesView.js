@@ -2,32 +2,24 @@
 
     var theModule = angular.module('notesView', []);
 
-    theModule.controller('notesViewController', [
-        function() {
+    theModule.controller('notesViewController', ['$window', '$http',
+        function($window, $http) {
             var vm = this;
 
-            vm.notes = [
-                {
-                    note: 'Hello World',
-                    color: 'yellow',
-                    author: 'Shawn Wildermuth'
-                },
-                {
-                    note: 'Goodbye World',
-                    color: 'orange',
-                    author: 'Shawn Wildermuth'
-                },
-                {
-                    note: 'Hello, I\'m back.',
-                    color: 'blue',
-                    author: 'Shawn Wildermuth'
-                },
-                {
-                    note: 'Hello from JS',
-                    color: 'orange',
-                    author: 'Shawn Wildermuth'
-                }
-                ];
+            vm.notes = [];
+            
+            // categoryName is last part of url...
+            var urlParts = $window.location.pathname.split('/');
+            var categoryName = urlParts[urlParts.length - 1];
+
+            var notesUrl = '/api/notes/' + categoryName;
+
+            $http.get(notesUrl).then(function(result) {
+                vm.notes = result.data;
+                }, 
+                function(err) {
+                    alert(err);
+                });
         }
     ]);
 
