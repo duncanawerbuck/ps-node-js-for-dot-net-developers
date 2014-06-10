@@ -37,6 +37,7 @@
     <Compile Include="data\seedData.js" />
     <Compile Include="data\index.js" />
     <Compile Include="gruntfile.js" />
+    <Compile Include="public\js\notesView.js" />
     <Compile Include="server.js" />
     <Content Include=".bowerrc" />
     <Content Include="package.json" />

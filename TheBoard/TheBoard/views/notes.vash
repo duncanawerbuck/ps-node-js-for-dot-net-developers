@@ -1,4 +1,9 @@
 ﻿@html.extend('layout', function(model) {
+    
+    @html.block('scripts', function(model) {
+        <script src="/js/notesView.js"></script>
+    })
+
 	@html.block('body', function(model) {
 
 <div>
