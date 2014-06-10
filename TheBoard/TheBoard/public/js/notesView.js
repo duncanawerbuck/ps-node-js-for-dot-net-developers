@@ -1,13 +1,18 @@
 ﻿(function(angular) {
 
-    var theModule = angular.module('notesView', []);
+    var theModule = angular.module('notesView', ['ui.bootstrap']);
 
     theModule.controller('notesViewController', ['$window', '$http',
         function($window, $http) {
             var vm = this;
 
             vm.notes = [];
-            
+
+            vm.newNote = {
+                note: '',
+                color: 'yellow'
+            };
+
             // categoryName is last part of url...
             var urlParts = $window.location.pathname.split('/');
             var categoryName = urlParts[urlParts.length - 1];

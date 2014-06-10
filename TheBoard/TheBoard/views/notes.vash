@@ -21,22 +21,24 @@
                     <label class="control-label col-lg-1">Color</label>
                     <div class="col-lg-5">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-primary" btn-radio="'yellow'">Yellow</button>
-                        <button type="button" class="btn btn-primary" btn-radio="'blue'">Blue</button>
-                        <button type="button" class="btn btn-primary" btn-radio="'green'">Green</button>
-                        <button type="button" class="btn btn-primary" btn-radio="'orange'">Orange</button>
+                          <button type="button" class="btn btn-primary" btn-radio="'yellow'" data-ng-model="vm.newNote.color">Yellow</button>
+                          <button type="button" class="btn btn-primary" btn-radio="'blue'" data-ng-model="vm.newNote.color">Blue</button>
+                          <button type="button" class="btn btn-primary" btn-radio="'green'" data-ng-model="vm.newNote.color">Green</button>
+                          <button type="button" class="btn btn-primary" btn-radio="'orange'" data-ng-model="vm.newNote.color">Orange</button>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-lg-1">Content</label>
                     <div class="col-lg-5">
-                      <textarea cols="30" rows="2" name="note" placeholder="Your Note" class="form-control" required maxlength="120"></textarea>
+                      <textarea data-ng-model="vm.newNote.note" cols="30" rows="2" name="note" placeholder="Your Note" class="form-control" required maxlength="120"></textarea>
+                        <span data-ng-show="newNoteForm.note.$error.required">Required</span>
+                        <p>{{ 120 - vm.newNote.note.length }}</p>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-lg-offset-1 col-lg-5">
-                      <input type="submit" value="Save" class="btn btn-primary">
+                      <input type="submit" value="Save" class="btn btn-primary" ng-disabled="newNoteForm.$invalid">
                     </div>
                   </div>
                 </form>
