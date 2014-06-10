@@ -1,10 +1,22 @@
 ﻿@html.extend('layout', function(model) {
-
 	@html.block('body', function(model) {
 
 <div>
     <a href="/" class="btn btn-info">Back</a>
     <div>
+
+        <div class="note note-yellow">
+            <div>This is a sample note.</div>
+            <div class="note-author"><small>-Shawn Wildermuth</small></div>
+        </div>
+        <div class="note note-blue">
+            <div>This is a sample note.</div>
+            <div class="note-author"><small>-Shawn Wildermuth</small></div>
+        </div>
+        <div class="note note-green">
+            <div>This is a sample note.</div>
+            <div class="note-author"><small>-Shawn Wildermuth</small></div>
+        </div>
 
     </div>
 </div>
