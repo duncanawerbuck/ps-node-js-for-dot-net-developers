@@ -6,9 +6,12 @@
 
 	@html.block('body', function(model) {
 
-<div>
+<div data-ng-app="notesView">
     <a href="/" class="btn btn-info">Back</a>
-    <div>
+
+    <div data-ng-controller="notesViewController as vm">
+
+        <h4>{{vm.hero}}</h4>
 
         <div class="note note-yellow">
             <div>This is a sample note.</div>
