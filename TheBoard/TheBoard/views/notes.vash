@@ -11,19 +11,9 @@
 
     <div data-ng-controller="notesViewController as vm">
 
-        <h4>{{vm.hero}}</h4>
-
-        <div class="note note-yellow">
-            <div>This is a sample note.</div>
-            <div class="note-author"><small>-Shawn Wildermuth</small></div>
-        </div>
-        <div class="note note-blue">
-            <div>This is a sample note.</div>
-            <div class="note-author"><small>-Shawn Wildermuth</small></div>
-        </div>
-        <div class="note note-green">
-            <div>This is a sample note.</div>
-            <div class="note-author"><small>-Shawn Wildermuth</small></div>
+        <div class="note" data-ng-repeat="n in vm.notes" data-ng-class="'note-' + n.color">
+            <div>{{ n.note }}</div>
+            <div class="note-author"><small>-{{ n.author }}</small></div>
         </div>
 
     </div>
