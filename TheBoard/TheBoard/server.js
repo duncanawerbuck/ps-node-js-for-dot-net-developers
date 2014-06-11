@@ -18,6 +18,11 @@ app.use(flash()); // connect-flash
 
 app.use(express.static(__dirname + '/public'));
 
+// use authentication
+var auth = require('./auth');
+auth.init(app);
+
+// Map the routes
 controllers.init(app);
 
 // Handle GET requests to api/users by returning JSON.
