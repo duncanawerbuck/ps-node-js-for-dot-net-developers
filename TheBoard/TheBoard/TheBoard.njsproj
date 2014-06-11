@@ -50,6 +50,7 @@
     <Content Include="views\layout.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\notes.vash" />
+    <Content Include="views\register.vash" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controllers\" />
