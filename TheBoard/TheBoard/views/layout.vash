@@ -22,6 +22,9 @@
                     <a href='/'>
                         <h4>The Board</h4>
                     </a>
+                    @if(model.user) {
+                        <div>@model.user.name</div>
+                    }
                 </div>
             </div>
             <div class="navbar-collapse collapse">

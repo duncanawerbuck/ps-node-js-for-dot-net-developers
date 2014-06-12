@@ -48,6 +48,29 @@
         app.use(passport.initialize());
         app.use(passport.session());
 
+        app.get('/login', function(req, res) {
+            res.render('login', { title: 'Log in to The Board', message: req.flash('loginError') });
+        });
+
+        app.post('/login', function(req, res, next) { // next is so that we can pass back to the post whether the login was successul or not
+            
+            var authFunction = passport.authenticate('local', function(err, user, info) {
+                if (err) {
+                    next(err);
+                } else {
+                    req.logIn(user, function(err) {
+                        if (err) {
+                            next(err);
+                        } else {
+                            res.redirect('/'); //login was successful! in our case, we're just redirecting to the home page, but you could look at the querystring to see where we should redirect too.
+                        }
+                    });
+                }
+            });
+
+            authFunction(req, res, next); // this is where the actual authentication happens
+        });
+
         app.get('/register', function(req, res) {
                 res.render('register', { title: 'Register for the Board', message: req.flash('registrationError') });
             }

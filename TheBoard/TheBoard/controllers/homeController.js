@@ -11,10 +11,11 @@
 
 
                 res.render('index', {
-                    title: 'Express + Vash',
+                    title: 'The Board',
                     error: err,
                     categories: results,
-                    newCatError: req.flash('newCatName')
+                    newCatError: req.flash('newCatName'),
+                    user: req.user // doesn't exist in most cases, but the passport middleware will ensure this exists if a user is in fact logged in
                 });
 
             });
@@ -27,7 +28,7 @@
         // Handle GET requests for all notes for a given category
         app.get("/notes/:categoryName", function(req, res) {
                 var categoryName = req.params.categoryName;
-                res.render("notes", { title: categoryName });
+                res.render("notes", { title: categoryName, user: req.user });
             }
         );
 
