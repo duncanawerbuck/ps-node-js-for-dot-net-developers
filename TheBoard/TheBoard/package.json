@@ -12,7 +12,9 @@
     "underscore": "~1.6.0",
     "vash": "~0.7.12-1",
     "mongodb": "~1.4.5",
-    "connect-flash": "~0.1.1"
+    "connect-flash": "~0.1.1",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
