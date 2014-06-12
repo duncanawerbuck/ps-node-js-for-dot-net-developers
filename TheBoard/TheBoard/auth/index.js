@@ -25,7 +25,28 @@
         });
     }
 
-    auth.init = function(app) {
+    auth.init = function (app) {
+
+        // set up passport authentication
+        passport.use(new localStrategy(userVerify));
+
+        // passport needs to know how to read/write a user.
+        passport.serializeUser(function(user, next) {
+            next(null, user.username);
+        });
+
+        passport.deserializeUser(function(key, next) {
+            data.getUser(key, function(err, user) {
+                if (err) {
+                    next(null, false, { message: 'Failed to retrieve user.' });
+                } else {
+                    next(null, user);
+                }
+            });
+        });
+
+        app.use(passport.initialize());
+        app.use(passport.session());
 
         app.get('/register', function(req, res) {
                 res.render('register', { title: 'Register for the Board', message: req.flash('registrationError') });
