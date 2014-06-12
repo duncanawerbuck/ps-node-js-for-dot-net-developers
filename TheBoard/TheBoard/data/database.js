@@ -14,7 +14,8 @@
                     // Shawn recommends that we wrap the db in an object so we can extend it easily later.
                     theDb = {
                         db: db,
-                        notes: db.collection('notes')
+                        notes: db.collection('notes'),
+                        users: db.collection('users')
                     };
                     next(null, theDb);
                 }
