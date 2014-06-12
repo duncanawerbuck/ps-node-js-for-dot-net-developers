@@ -4,7 +4,7 @@
     var hasher = require('./hasher');
 
     var passport = require('passport');
-    var localStragetgy = require('passport-local').Strategy;
+    var localStrategy = require('passport-local').Strategy;
 
     function userVerify(username, password, next) {
         data.getUser(username, function(err, user) {
