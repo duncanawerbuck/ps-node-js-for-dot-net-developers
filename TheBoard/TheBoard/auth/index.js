@@ -3,6 +3,28 @@
     var data = require('../data');
     var hasher = require('./hasher');
 
+    var passport = require('passport');
+    var localStragetgy = require('passport-local').Strategy;
+
+    function userVerify(username, password, next) {
+        data.getUser(username, function(err, user) {
+            if (!err && user) {
+                
+                // we have a valid object to test against
+                var testHash = hasher.computeHash(password, user.salt);
+
+                if (testHash === user.passwordHash) {
+                    // user is validated!
+                    next(null, user);
+                    return;
+                }
+            }
+
+            // Error (or invalid login attempt) - Note that passport doesn't follow normal convention of first param being error.
+            next(null, false, { message: 'Invalid credentials' }); // This is actually for ANY error (invalid credentials or other, e.g. db error).
+        });
+    }
+
     auth.init = function(app) {
 
         app.get('/register', function(req, res) {
