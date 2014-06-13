@@ -2,6 +2,7 @@
     
     @html.block('scripts', function(model) {
         <script src="/js/notesView.js"></script>
+        <script src="/lib/socket.io-client/lib/socket.js"></script>
     })
 
 	@html.block('body', function(model) {
