@@ -22,6 +22,8 @@
                     alert(err);
                 });
 
+            var socket = io.connect(); // can take a url param, but we don't need to do that, since the page was served by the same server that has the socket we're connecting to.
+
             vm.save = function () {
                 $http.post(notesUrl, vm.newNote)
                     .then(function(result) {

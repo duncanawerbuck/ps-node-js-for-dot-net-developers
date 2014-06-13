@@ -21,7 +21,7 @@
                 } else {
 
                     res.set('Content-Type', 'application/json'); // JSON is the default, but we're good citizens, so specifying content type explicitly.
-                    console.info(notes.notes);
+                    
                     res.send(notes.notes);
                 }
             });
