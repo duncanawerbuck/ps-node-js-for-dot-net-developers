@@ -2,12 +2,15 @@
 (function (notesController) {
 
     var data = require('../data');
+    var auth = require('../auth');
 
     notesController.init = function (app) {
 
 
         // GET notes by category name
-        app.get('/api/notes/:categoryName', function (req, res) {
+        app.get('/api/notes/:categoryName',
+            auth.ensureApiAuthenticated, // only if api is authenticated...
+            function (req, res) {
 
             var categoryName = req.params.categoryName;
 
@@ -25,7 +28,9 @@
         });
 
         // POST - add a new note
-        app.post('/api/notes/:categoryName', function(req, res) {
+        app.post('/api/notes/:categoryName',
+            auth.ensureApiAuthenticated, // only if api is authenticated...
+            function(req, res) {
 
             var categoryName = req.params.categoryName;
 
