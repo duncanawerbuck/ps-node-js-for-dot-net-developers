@@ -2,6 +2,6 @@
 
 As per Shawn Wildermuth's Pluralsight Course "Node.js for .NET Developers"
 
-Done up to end of "Integrating Passport.js and Express.js".
+Done up to end of "Creating a Login Page".
 
-We're now ready to create a login page.
+We're now ready for the last bit: "Authorizing Pages and APIs".
