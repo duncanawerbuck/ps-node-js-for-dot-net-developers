@@ -44,3 +44,6 @@ app.get('/api/users', function (req, res) {
 var server = http.createServer(app);
 
 server.listen(3000);
+
+var updater = require('./updater');
+updater.init(server);

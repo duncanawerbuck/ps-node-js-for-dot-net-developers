@@ -2,6 +2,6 @@
 
 As per Shawn Wildermuth's Pluralsight Course "Node.js for .NET Developers"
 
-Done up to end of "Securing Node.js" module.
+Done up to end of "Starting with Socket.io".
 
-We're now ready to start the last module: "Real-time Communication with Node.js".
+We've just implemented the server-side socket, but not yet the client. The latter will be done in the section "Client-side Socket.io".
