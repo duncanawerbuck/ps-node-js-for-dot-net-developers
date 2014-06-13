@@ -3,6 +3,7 @@
     homeController.init = function(app) {
 
         var data = require('../data');
+        var auth = require('../auth');
 
         // Handle GET requests to the root
         app.get('/', function(req, res) {
@@ -26,7 +27,9 @@
         });
 
         // Handle GET requests for all notes for a given category
-        app.get("/notes/:categoryName", function(req, res) {
+        app.get("/notes/:categoryName",
+            auth.ensureAuthenticated, // only for logged in users...
+            function(req, res) {
                 var categoryName = req.params.categoryName;
                 res.render("notes", { title: categoryName, user: req.user });
             }
