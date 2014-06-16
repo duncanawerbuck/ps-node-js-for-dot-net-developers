@@ -2,6 +2,8 @@
 
 As per Shawn Wildermuth's Pluralsight Course "Node.js for .NET Developers"
 
-Up to 02:27 of "Client-side Socket.io" ("Real-time Communication with Node.js" module).
+Up to end of "Client-side Socket.io" ("Real-time Communication with Node.js" module).
 
-Not sure why we're not getting the additional debug info - perhaps we should be using an older version of either socket.io or socket.io-cli.
+We have two-way communication between client and server using socket.io, though this is purely for a single connection.
+
+Ready to start "Broadcasting Messages" section.

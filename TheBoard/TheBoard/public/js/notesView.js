@@ -22,7 +22,17 @@
                     alert(err);
                 });
 
+            /* start socket.io stuff **************************/
+
+            // initiate socket.io connection with the server.
             var socket = io.connect(); // can take a url param, but we don't need to do that, since the page was served by the same server that has the socket we're connecting to.
+
+            // listen out for 'showThis' events that are emitted from the server (see updater\index.js).
+            socket.on('showThis', function(msg) {
+                alert(msg);
+            });
+
+            /* end socket.io stuff **************************/
 
             vm.save = function () {
                 $http.post(notesUrl, vm.newNote)

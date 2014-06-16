@@ -15,6 +15,9 @@
             objects releated to a SINGLE client that we're connected to.
             */
             console.log('socket was connected at: ' + new Date().toTimeString().split(' ')[0]);
+
+            // 'emit' allows us to send a message to this single client that's currently connected.
+            socket.emit('showThis', 'This is from the server.');
         });
     };
 
