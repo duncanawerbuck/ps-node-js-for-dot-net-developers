@@ -27,8 +27,9 @@
             // initiate socket.io connection with the server.
             var socket = io.connect(); // can take a url param, but we don't need to do that, since the page was served by the same server that has the socket we're connecting to.
 
+            socket.emit('join category', categoryName);
+
             // listen out for 'broadcast note' events that are emitted from the server (see updater\index.js).
-            
             socket.on('broadcast note', function (msg) {
                 vm.notes.push(msg);
                 $scope.$apply();

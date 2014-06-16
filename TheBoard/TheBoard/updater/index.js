@@ -16,10 +16,14 @@
             */
             console.log('socket was connected at: ' + new Date().toTimeString().split(' ')[0]);
 
+            socket.on('join category', function (category) {
+                socket.join(category);
+            });
+
             socket.on('newNote', function(data) { // when a client sends a 'newNote' message...
                 
                 // broadcast to all connected clients, except the current one.
-                socket.broadcast.emit('broadcast note', data.note);
+                socket.broadcast.to(data.category).emit('broadcast note', data.note);
             });
         });
     };
