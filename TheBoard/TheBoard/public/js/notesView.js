@@ -2,8 +2,8 @@
 
     var theModule = angular.module('notesView', ['ui.bootstrap']);
 
-    theModule.controller('notesViewController', ['$window', '$http',
-        function($window, $http) {
+    theModule.controller('notesViewController', ['$scope', '$window', '$http',
+        function($scope, $window, $http) {
             var vm = this;
             vm.notes = [];
 
@@ -27,9 +27,11 @@
             // initiate socket.io connection with the server.
             var socket = io.connect(); // can take a url param, but we don't need to do that, since the page was served by the same server that has the socket we're connecting to.
 
-            // listen out for 'showThis' events that are emitted from the server (see updater\index.js).
-            socket.on('showThis', function(msg) {
-                alert(msg);
+            // listen out for 'broadcast note' events that are emitted from the server (see updater\index.js).
+            
+            socket.on('broadcast note', function (msg) {
+                vm.notes.push(msg);
+                $scope.$apply();
             });
 
             /* end socket.io stuff **************************/
@@ -40,6 +42,7 @@
                         // success
                         vm.notes.push(result.data);
                         vm.newNote = createBlankNote();
+                        socket.emit('newNote', { category: categoryName, note: result.data });
                     },
                         function(err) {
                             alert(err);

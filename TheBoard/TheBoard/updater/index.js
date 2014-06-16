@@ -16,8 +16,11 @@
             */
             console.log('socket was connected at: ' + new Date().toTimeString().split(' ')[0]);
 
-            // 'emit' allows us to send a message to this single client that's currently connected.
-            socket.emit('showThis', 'This is from the server.');
+            socket.on('newNote', function(data) { // when a client sends a 'newNote' message...
+                
+                // broadcast to all connected clients, except the current one.
+                socket.broadcast.emit('broadcast note', data.note);
+            });
         });
     };
 
